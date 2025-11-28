@@ -72,4 +72,4 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 
 REM Run the Maven Wrapper main class
-"%JAVA_CMD%" %JVM_OPTS% %MAVEN_OPTS% -cp "%WRAPPER_JAR%" org.apache.maven.wrapper.MavenWrapperMain %*
+"%JAVA_CMD%" %JVM_OPTS% %MAVEN_OPTS% "-Dmaven.multiModuleProjectDirectory=%BASE_DIR%" -cp "%WRAPPER_JAR%" org.apache.maven.wrapper.MavenWrapperMain %*

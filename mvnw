@@ -72,4 +72,4 @@ fi
 
 # Execute the Maven Wrapper main class
 # shellcheck disable=SC2086
-exec "$JAVA_CMD" $JVM_OPTS $MAVEN_OPTS -cp "$WRAPPER_JAR" org.apache.maven.wrapper.MavenWrapperMain "$@"
+exec "$JAVA_CMD" $JVM_OPTS $MAVEN_OPTS -Dmaven.multiModuleProjectDirectory="$BASE_DIR" -cp "$WRAPPER_JAR" org.apache.maven.wrapper.MavenWrapperMain "$@"
