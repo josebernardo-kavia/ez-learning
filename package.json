@@ -1,0 +1,9 @@
+{
+  "name": "ez-learning",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Fallback package.json to allow npm start to run the Spring Boot app via Maven Wrapper.",
+  "scripts": {
+    "start": "./mvnw spring-boot:run -Dspring-boot.run.arguments=\\\"--server.port=${PORT:-3001} --server.address=0.0.0.0\\\" -Dspring-boot.run.profiles=dev"
+  }
+}

@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+# start - Exec wrapper for environments that auto-execute a 'start' file.
+# Always uses the Maven Wrapper (./mvnw); never system 'mvn'.
+# Binds to 0.0.0.0 and uses $PORT if provided, else defaults to 3001.
+
+set -e
+
+# Execute from the repository root (folder containing this script)
+SCRIPT_DIR="$(cd "$(dirname "$0")" >/dev/null 2>&1 && pwd -P)"
+cd "$SCRIPT_DIR"
+
+# Run Spring Boot with dev profile and bind to correct host/port
+exec ./mvnw spring-boot:run \
+  -Dspring-boot.run.arguments="--server.port=${PORT:-3001} --server.address=0.0.0.0" \
+  -Dspring-boot.run.profiles=dev
