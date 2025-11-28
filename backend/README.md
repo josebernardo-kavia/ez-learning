@@ -1,6 +1,6 @@
 # Ez Learning
 
-> e-learning web application made using Java 8, Spring Boot, MySql and Materialize
+> e-learning web application made using Java 22, Spring Boot 3, MySQL and Materialize
 
 [![GitHub](https://img.shields.io/github/license/donnatto/ez-learning?color=purple)](https://opensource.org/licenses/MIT)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/donnatto/ez-learning?color=red)](https://github.com/donnatto/ez-learning/releases)
@@ -14,17 +14,33 @@
 
 ## Start the Application
 
-To start the application locally with the default profile (dev), run from the /ez-learning folder using the Maven Wrapper:
+The project now targets Java 22 and Spring Boot 3.4.x. Always use the Maven Wrapper.
+
+To start the application locally with the default profile (dev), run from the /ez-learning folder:
 ```shell
 ./mvnw spring-boot:run
 ```
 
-For preview environments or containers (binding to 0.0.0.0 on port 3001), run:
+To bind to 0.0.0.0 on port 3001 (useful for preview environments/containers):
 ```shell
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev -Dspring-boot.run.arguments="--server.port=3001 --server.address=0.0.0.0"
 ```
 
-Note: Always use the Maven Wrapper (./mvnw). Do not use the system 'mvn' command as it may not be available in the environment.
+Production (prod profile) expects MySQL configuration via environment variables: MYSQL_URL, MYSQL_USER, MYSQL_PASSWORD.
+Example:
+```shell
+SPRING_PROFILES_ACTIVE=prod MYSQL_URL="jdbc:mysql://db:3306/ezlearning?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC" \
+MYSQL_USER=ezlearning MYSQL_PASSWORD=secret \
+./mvnw spring-boot:run
+```
+
+Notes:
+- Spring Security 6 is configured via a SecurityFilterChain bean. Defaults permit access during migration (tighten for production).
+- Thymeleaf integrates the Spring Security 6 dialect (thymeleaf-extras-springsecurity6).
+- Dev profile uses H2 in-memory DB with H2 console enabled at /h2-console; Flyway is enabled (no-op if no migrations exist).
+- Prod profile uses MySQL with Flyway migrations (place SQL scripts under src/main/resources/db/migration).
+- Tests run on JUnit 5 (Jupiter) automatically via Spring Boot Starter Test.
+- Always use the Maven Wrapper (./mvnw). Do not use the system 'mvn' command as it may not be available.
 
 ---
 
