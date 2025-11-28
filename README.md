@@ -31,12 +31,23 @@ Kavia preview configuration is provided at `.kavia/preview.yaml`.
 
 Exact preview command (used by preview tooling):
 ```sh
-./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=3001 --server.address=0.0.0.0
+./mvnw spring-boot:run -Dspring-boot.run.arguments="--server.port=3001 --server.address=0.0.0.0"
 ```
 
 Notes:
 - The default profile is `dev` via `src/main/resources/application.properties`.
 - If your preview system sets `PORT`, scripts will honor it; else they default to 3001.
+
+## .env hint (for preview systems with fixed commands)
+
+Some preview systems always invoke a fixed command and ignore shell scripts. In those cases:
+- A `.kavia/preview.yaml` is included to force the use of `./mvnw`.
+- You can copy `.env.example` to `.env` and set overrides:
+  ```
+  PORT=3001
+  SPRING_PROFILES_ACTIVE=dev
+  ```
+- Never call `mvn` directly; use `./mvnw` so the correct Maven version is used automatically.
 
 ## Production (MySQL)
 

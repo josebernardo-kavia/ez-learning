@@ -1,18 +1,3 @@
-# Kavia Preview configuration for ez-learning-283789
-# Ensures preview uses the Maven Wrapper (./mvnw) and binds to 0.0.0.0:3001.
-version: "1.0"
-
-containers:
-  - name: ez-learning-283789
-    type: backend
-    workingDirectory: .
-    start:
-      command: ./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=3001 --server.address=0.0.0.0
-    env:
-      PORT: "3001"
-    port: 3001
-    healthCheck:
-      type: http
-      path: /actuator/health
-      intervalSeconds: 10
-      timeoutSeconds: 120
+# Kavia preview configuration for ez-learning
+# Always uses Maven Wrapper; never rely on system 'mvn'.
+command: ./mvnw spring-boot:run -Dspring-boot.run.arguments="--server.port=3001 --server.address=0.0.0.0"
