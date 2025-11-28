@@ -14,10 +14,17 @@
 
 ## Start the Application
 
-To start the application locally with the default profile (dev) run this command at the /ez-learning folder
+To start the application locally with the default profile (dev), run from the /ez-learning folder using the Maven Wrapper:
 ```shell
 ./mvnw spring-boot:run
 ```
+
+For preview environments or containers (binding to 0.0.0.0 on port 3001), run:
+```shell
+./mvnw spring-boot:run -Dspring-boot.run.profiles=dev -Dspring-boot.run.arguments="--server.port=3001 --server.address=0.0.0.0"
+```
+
+Note: Always use the Maven Wrapper (./mvnw). Do not use the system 'mvn' command as it may not be available in the environment.
 
 ---
 
