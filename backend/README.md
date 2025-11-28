@@ -1,6 +1,6 @@
 # Ez Learning
 
-> e-learning web application made using Java 8, Spring Boot, MySql and Materialize
+> e-learning web application made using Java, Spring Boot, MySql and Materialize
 
 [![GitHub](https://img.shields.io/github/license/donnatto/ez-learning?color=purple)](https://opensource.org/licenses/MIT)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/donnatto/ez-learning?color=red)](https://github.com/donnatto/ez-learning/releases)
@@ -12,12 +12,26 @@
 
 ---
 
+## Prerequisites (Java 22)
+
+- Install JDK 22 (e.g., Eclipse Temurin 22).
+- Ensure JAVA_HOME points to JDK 22.
+- If using Maven Wrapper, ensure the project has a pom.xml configured for Java 22 (see JAVA22_MIGRATION_STATUS.md).
+
+---
+
 ## Start the Application
 
-To start the application locally with the default profile (dev) run this command at the /ez-learning folder
+Once the full project (pom.xml/build.gradle and src) is present, start the application locally with the default profile (dev) by running this command at the /ez-learning folder:
 ```shell
 ./mvnw spring-boot:run
 ```
+
+---
+
+## Migration Status
+
+This repository snapshot is being migrated to Java 22. See JAVA22_MIGRATION_STATUS.md for guidance, required dependency versions, and examples for Maven/Gradle, CI, and Docker.
 
 ---
 
@@ -33,7 +47,7 @@ It's an e-learning platform where you can explore courses, teachers, and registe
 
 Uses [Thymeleaf](https://www.thymeleaf.org/) as the template engine for the Frontend, which was styled using [Materialize](https://materializecss.com/).
 
-The backend is developed in Java 8, using [Spring Boot](https://spring.io/projects/spring-boot) with Spring MVC, Spring JPA and Spring Security dependencies.
+The backend was originally developed in Java 8. The target runtime is now Java 22 with [Spring Boot](https://spring.io/projects/spring-boot) 3.3.x, Spring MVC, Spring JPA, and Spring Security.
 
 It has 2 application profiles, one for development and one for production. The dev profile uses an in memory [H2 Database](https://www.h2database.com/), while the production one uses [MySql](https://www.mysql.com/). Both of them use Sql versioning with [Flyway](https://flywaydb.org/).
 
