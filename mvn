@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+# mvn - shim to invoke the Maven Wrapper so environments that call 'mvn' work.
+# Forwards all arguments to the local ./mvnw script.
+
+set -e
+
+# Resolve this script's directory to ensure we call the local mvnw reliably
+DIR="$(cd "$(dirname "$0")" >/dev/null 2>&1 && pwd -P)"
+
+exec "$DIR/mvnw" "$@"
