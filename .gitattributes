@@ -1,0 +1,5 @@
+# Ensure POSIX scripts remain with LF endings across platforms
+*.sh text eol=lf
+mvn text eol=lf
+mvnw text eol=lf
+start text eol=lf

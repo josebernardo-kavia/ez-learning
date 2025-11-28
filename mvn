@@ -1,10 +1,18 @@
 #!/usr/bin/env sh
-# mvn - shim to invoke the Maven Wrapper so environments that call 'mvn' work.
-# Forwards all arguments to the local ./mvnw script.
+# mvn - Portable POSIX shim to invoke the Maven Wrapper so environments that call 'mvn' work.
+# Forwards all arguments to the local ./mvnw script and mirrors its exit code.
 
-set -e
+set -eu
 
 # Resolve this script's directory to ensure we call the local mvnw reliably
-DIR="$(cd "$(dirname "$0")" >/dev/null 2>&1 && pwd -P)"
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname "$0")" && pwd)"
 
-exec "$DIR/mvnw" "$@"
+# Best-effort: make key scripts executable in environments that strip exec bits
+# Do not fail if chmod is not permitted (e.g., read-only FS)
+for f in "$SCRIPT_DIR/mvn" "$SCRIPT_DIR/mvnw" "$SCRIPT_DIR/start.sh" "$SCRIPT_DIR/run.sh" "$SCRIPT_DIR/start"; do
+  if [ -f "$f" ]; then
+    chmod +x "$f" 2>/dev/null || true
+  fi
+done
+
+exec "$SCRIPT_DIR/mvnw" "$@"

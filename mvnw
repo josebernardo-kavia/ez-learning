@@ -8,6 +8,9 @@
 
 set -eu
 
+# Attempt to ensure this script is executable for future runs (best-effort)
+chmod +x "$0" 2>/dev/null || true
+
 # Resolve the base directory of the project (the directory containing this script)
 # shellcheck disable=SC2164
 BASE_DIR="$(cd "$(dirname "$0")" >/dev/null 2>&1 && pwd -P)"

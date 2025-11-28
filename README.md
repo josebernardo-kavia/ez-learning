@@ -1,6 +1,6 @@
 # Ez Learning (Spring Boot 3 / Java 22)
 
-This is the root README for the Spring Boot application. Always use the Maven Wrapper (`./mvnw`)—do not rely on a system `mvn` which may not be available in preview environments.
+This is the root README for the Spring Boot application. Always use the Maven Wrapper (`./mvnw`)—do not rely on a system `mvn` which may not be available in preview environments. For environments that hardcode `mvn`, a POSIX shim (`./mvn`) is included and forwards all arguments to `./mvnw`. Scripts also attempt to self-correct executable bits at runtime for portability.
 
 ## Quick Start (Local)
 
