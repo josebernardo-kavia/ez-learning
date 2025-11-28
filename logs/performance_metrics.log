@@ -131,3 +131,30 @@
 2025-11-28 15:35:39,069 - Knowledge - INFO - ⚡ Total Redis path: 3.43s (vs ~300s from disk)
 2025-11-28 15:35:39,284 - Knowledge - INFO - Saving knowledge to Redis...
 2025-11-28 15:35:39,464 - Knowledge - INFO - Knowledge saved to Redis successfully
+2025-11-28 15:38:49,866 - Knowledge - INFO - Created shared MongoDB connection pool
+2025-11-28 15:38:50,204 - Knowledge - INFO - Starting Knowledge Graph processing with 20 threads
+2025-11-28 15:38:50,411 - Knowledge - INFO - Initial configuration: chunk_size=65536, max_cache_size=500
+2025-11-28 15:38:50,615 - Knowledge - INFO - Knowledge Graph concurrency configuration: workers=20, max_batch_size=25, max_concurrent_llm_calls=50
+2025-11-28 15:38:51,803 - Knowledge - INFO - 🔍 _load_persisted_knowledge called - checking for Redis optimization
+2025-11-28 15:38:51,958 - Knowledge - WARNING - ❌ load_from_redis method not found - Redis support not attached
+2025-11-28 15:38:52,180 - Knowledge - INFO - load persisted knowledge: begin
+2025-11-28 15:38:52,407 - Knowledge - INFO - Persisted knowledge files in /app/data/T0015/283789/b5419x3/ez-learning/.knowledge have been renamed to use .json
+2025-11-28 15:38:52,634 - Knowledge - INFO - Found code-base-name: https://github.com/josebernardo-kavia/ez-learning.git:main
+2025-11-28 15:38:52,846 - Knowledge - INFO - Found code_base: <app.utils.kg_build.knowledge.KnowledgeCodeBase object at 0x7f27659acd90>
+2025-11-28 15:38:53,030 - Knowledge - INFO - process ingested knowledge for /app/data/T0015/283789/b5419x3/ez-learning/backend/README.md
+2025-11-28 15:38:53,218 - Knowledge - INFO - Loaded 1 files from persisted knowledge
+2025-11-28 15:38:53,445 - Knowledge - INFO - load persisted knowledge: end
+2025-11-28 15:38:53,654 - Knowledge - INFO - Redis support added with prefix knowledge:b5419x3:
+2025-11-28 15:38:53,857 - Knowledge - INFO - Starting knowledge initialization for ID: AkSoMg-b5419x3
+2025-11-28 15:38:54,047 - Knowledge - INFO - 🔍 Checking Redis for build_id: b5419x3
+2025-11-28 15:38:54,253 - Knowledge - INFO - 🔍 Full session ID: AkSoMg-b5419x3
+2025-11-28 15:38:54,436 - Knowledge - INFO - 🔍 Redis prefix will be: knowledge:b5419x3:
+2025-11-28 15:38:54,668 - Knowledge - INFO - 🔍 Using attached load_from_redis() method
+2025-11-28 15:38:54,841 - Knowledge - INFO - 🔍 Attempting to load knowledge from Redis...
+2025-11-28 15:38:55,023 - Knowledge - INFO - 🔍 Using derived instance_id for Redis lookup: b5419x3
+2025-11-28 15:38:58,403 - Knowledge - INFO - ✅ Redis cache found! Loading knowledge...
+2025-11-28 15:38:58,582 - Knowledge - INFO - ✅ Successfully loaded from Redis: 1 files
+2025-11-28 15:38:58,782 - Knowledge - INFO - ✅ Redis load complete: 1 files in 4.11s
+2025-11-28 15:38:58,987 - Knowledge - INFO - ⚡ Total Redis path: 4.11s (vs ~300s from disk)
+2025-11-28 15:38:59,187 - Knowledge - INFO - Saving knowledge to Redis...
+2025-11-28 15:38:59,383 - Knowledge - INFO - Knowledge saved to Redis successfully
